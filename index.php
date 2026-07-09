@@ -31,10 +31,12 @@ require __DIR__ . '/includes/header.php';
 <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
         <?php for ($r = 0; $r < 2; $r++): ?>
-            <span><?= SITE_TAGLINE ?></span><span class="dot">&bull;</span>
-            <?php foreach (DIENSTEN as $dienst): ?>
-                <span><?= e($dienst) ?></span><span class="dot">&bull;</span>
-            <?php endforeach; ?>
+            <span class="marquee-group">
+                <span><?= SITE_TAGLINE ?></span><span class="dot">&bull;</span>
+                <?php foreach (DIENSTEN as $dienst): ?>
+                    <span><?= e($dienst) ?></span><span class="dot">&bull;</span>
+                <?php endforeach; ?>
+            </span>
         <?php endfor; ?>
     </div>
 </div>

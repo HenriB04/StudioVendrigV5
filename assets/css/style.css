@@ -151,6 +151,7 @@ h1, h2, h3, .display, .display-xl { font-family: var(--font-head); font-weight: 
     padding: 14px 0; white-space: nowrap;
     animation: marquee 28s linear infinite;
 }
+.marquee-group { display: inline-flex; gap: 2.2rem; align-items: center; }
 .marquee-track span {
     font-family: var(--font-head); font-size: 0.95rem; letter-spacing: 0.24em;
     text-transform: uppercase; color: var(--paper);
@@ -412,7 +413,10 @@ h1, h2, h3, .display, .display-xl { font-family: var(--font-head); font-weight: 
 .reveal.is-visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
-    .marquee-track { animation: none; }
+    /* Stilstaande band: één exemplaar tonen i.p.v. de dubbele lus-tekst */
+    .marquee-track { animation: none; white-space: normal; width: 100%; justify-content: center; }
+    .marquee-group + .marquee-group { display: none; }
+    .marquee-group { flex-wrap: wrap; justify-content: center; row-gap: 4px; }
     html { scroll-behavior: auto; }
 }
 
